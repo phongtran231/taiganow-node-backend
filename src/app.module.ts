@@ -64,7 +64,12 @@ const models = [
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_DATABASE'),
         autoLoadModels: true,
-        synchronize: true,
+        synchronize: false,
+        models,
+        define: {
+          createdAt: 'created_at',
+          updatedAt: 'updated_at',
+        },
       }),
     }),
     SequelizeModule.forFeature(models),
